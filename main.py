@@ -12,7 +12,6 @@ from discord.ext import commands
 from keep_alive import keep_alive
 import json
 import asyncio
-import mysql.connector
 respondidos = []
 grupos = []
 notperm = []
@@ -32,17 +31,7 @@ changer1 = False
 purge0 = False
 purge1 = False
 print()
-conexao = mysql.connector.connect(
-  host="aws.connect.psdb.cloud",
-  user=os.getenv("User"),
-  password=os.getenv("Pass"),
-  database="testar")
-cursor = conexao.cursor()
-consulta = "SELECT * FROM tabela_exemplo"
-cursor.execute(consulta)
-valores = cursor.fetchall()
-resultado = valores[0][1]
-my_secret6 = resultado
+my_secret6 = os.getenv("token")
 client = commands.Bot(command_prefix='$', self_bot=True, help_command=None)
 
 heads = [
